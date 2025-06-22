@@ -1,11 +1,11 @@
-from flask import Flask, request, jsonify, redirect, make_response, render_template_string
+from flask import Flask, request, jsonify, redirect, make_response, render_template
 import os
 import re
 import urllib.parse
 import logging
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='static')
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -34,81 +34,7 @@ def log_attempt(endpoint, technique, success, status_code, details=""):
 @app.route('/')
 def index():
     """Main page with testing information"""
-    html_template = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>BypassX Testing Lab</title>
-        <style>
-            body { font-family: Arial, sans-serif; margin: 40px; }
-            .endpoint { background: #f5f5f5; padding: 15px; margin: 10px 0; border-radius: 5px; }
-            .success { color: #2e7d32; }
-            .failed { color: #c62828; }
-            .technique { font-weight: bold; color: #1565c0; }
-        </style>
-    </head>
-    <body>
-        <h1>BypassX Testing Lab</h1>
-        <p>This lab provides various protected endpoints to test bypass techniques.</p>
-        
-        <h2>Protected Endpoints:</h2>
-        <div class="endpoint">
-            <strong>/admin</strong> - Main admin panel (vulnerable to multiple techniques)
-        </div>
-        <div class="endpoint">
-            <strong>/api/admin</strong> - API admin endpoint (vulnerable to path techniques)
-        </div>
-        <div class="endpoint">
-            <strong>/secure</strong> - Secure area (vulnerable to header techniques)
-        </div>
-        <div class="endpoint">
-            <strong>/internal</strong> - Internal access (vulnerable to IP spoofing)
-        </div>
-        <div class="endpoint">
-            <strong>/debug</strong> - Debug endpoint (vulnerable to method tampering)
-        </div>
-        <div class="endpoint">
-            <strong>/waf</strong> - Modern WAF endpoint (Cloudflare-style protection)
-        </div>
-        <div class="endpoint">
-            <strong>/cdn</strong> - CDN bypass endpoint (Origin IP & cache techniques)
-        </div>
-        <div class="endpoint">
-            <strong>/api/v2/admin</strong> - API v2 with JWT & GraphQL vulnerabilities
-        </div>
-        <div class="endpoint">
-            <strong>/microservice</strong> - Container & service mesh bypasses
-        </div>
-        <div class="endpoint">
-            <strong>/ml-protected</strong> - ML/AI evasion techniques
-        </div>
-        <div class="endpoint">
-            <strong>/advanced</strong> - Unicode & encoding bypass testing
-        </div>
-        
-        <h2>Recent Bypass Attempts: <span id="total">{{ total_attempts }}</span></h2>
-        <div id="attempts">
-            {% for attempt in recent_attempts %}
-            <div class="endpoint">
-                <span class="technique">{{ attempt.technique }}</span> - 
-                <span class="{{ 'success' if attempt.success else 'failed' }}">
-                    {{ 'SUCCESS' if attempt.success else 'FAILED' }}
-                </span>
-                ({{ attempt.status_code }}) - {{ attempt.endpoint }} via {{ attempt.method }}
-                <br><small>{{ attempt.timestamp }}</small>
-            </div>
-            {% endfor %}
-        </div>
-        
-        <p><a href="/stats">View Full Statistics</a></p>
-    </body>
-    </html>
-    """
-    
-    recent_attempts = bypass_attempts[-20:] if bypass_attempts else []
-    return render_template_string(html_template, 
-                                recent_attempts=reversed(recent_attempts),
-                                total_attempts=len(bypass_attempts))
+    return render_template('index.html')
 
 @app.route('/stats')
 def stats():
@@ -832,6 +758,7 @@ def accept_bypass():
 def charset_bypass():
     """Character encoding bypass attempts"""
     default_response = make_response(jsonify(message="Charset - Access Denied"), 403)
+    
     
     ct = request.headers.get('Content-Type', '')
     if 'charset=utf-7' in ct or 'charset=iso-8859-1' in ct:
