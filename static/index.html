@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BypassX Testing Laboratory - Complete HTTP 403 Bypass Suite</title>
+    <meta name="description" content="Advanced HTTP 403 bypass testing laboratory with 60+ protected endpoints for security testing and research purposes">
+    <meta name="keywords" content="HTTP 403 bypass, security testing, web security, WAF testing, security research">
     <style>
         * {
             margin: 0;
@@ -279,8 +281,45 @@
         
         <div class="main-content">
             <div class="warning">
-                <strong>⚠️ Security Testing Environment</strong><br>
-                This laboratory is designed for authorized security testing only. All bypass techniques are implemented for educational and legitimate security assessment purposes.
+                <strong>⚠️ Important Security Notice</strong><br>
+                <p>This laboratory is designed exclusively for authorized security testing and research purposes. All bypass techniques are implemented for educational and legitimate security assessment purposes only.</p>
+                <div class="security-guidelines">
+                    <h3>Security Guidelines:</h3>
+                    <ul>
+                        <li>Only use this laboratory for authorized testing</li>
+                        <li>Do not attempt to bypass security controls on production systems</li>
+                        <li>Report any security findings to the appropriate parties</li>
+                        <li>Follow responsible disclosure guidelines</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h2>About BypassX Laboratory</h2>
+                <p>BypassX Testing Laboratory is a comprehensive platform designed to help security researchers, penetration testers, and security professionals test and understand various HTTP 403 bypass techniques. With over 60 protected endpoints, this laboratory covers a wide range of bypass scenarios across different security layers.</p>
+                
+                <div class="key-features">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>60+ protected endpoints for testing</li>
+                        <li>Real-world security control implementations</li>
+                        <li>Interactive testing environment</li>
+                        <li>Modern bypass techniques coverage</li>
+                        <li>Comprehensive documentation</li>
+                    </ul>
+                </div>
+                
+                <div class="usage-guidelines">
+                    <h3>Usage Guidelines</h3>
+                    <p>Before using this laboratory, please ensure you have proper authorization and follow these guidelines:</p>
+                    <ul>
+                        <li>Obtain proper authorization before testing</li>
+                        <li>Document all test cases and findings</li>
+                        <li>Follow ethical hacking principles</li>
+                        <li>Report vulnerabilities responsibly</li>
+                        <li>Respect privacy and data protection laws</li>
+                    </ul>
+                </div>
             </div>
             
             <h2>Laboratory Statistics</h2>
@@ -368,7 +407,7 @@
                         <div class="endpoint-card" onclick="testEndpoint('/api/v2/admin')">
                             <span class="endpoint-url">/api/v2/admin</span>
                             <div class="methods">GET, POST, PUT, DELETE, PATCH</div>
-                            <div class="description">API v2 with JWT none algorithm, GraphQL introspection, API version downgrade, CORS preflight</div>
+                            <div class="description">API v2 - JWT none algorithm, GraphQL introspection, API version downgrade, CORS preflight</div>
                             <span class="success-count">8+ bypasses</span>
                         </div>
                         
@@ -408,290 +447,144 @@
                         
                         <div class="endpoint-card" onclick="testEndpoint('/connect-method')">
                             <span class="endpoint-url">/connect-method</span>
-                            <div class="methods">CONNECT, GET, POST</div>
-                            <div class="description">HTTP CONNECT method bypass, CONNECT via headers</div>
-                            <span class="success-count">3+ bypasses</span>
+                            <p class="methods">CONNECT</p>
+                            <p class="description">HTTP CONNECT method tunneling bypass.</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Path Manipulation -->
+
+                <!-- Advanced Path Manipulation -->
                 <div class="endpoints-category">
                     <div class="category-header">🛤️ Advanced Path Manipulation</div>
                     <div class="endpoints-grid">
                         <div class="endpoint-card" onclick="testEndpoint('/path-normalization')">
                             <span class="endpoint-url">/path-normalization</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Path normalization: directory traversal, encoded traversal, null segments</div>
-                            <span class="success-count">8+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">Path normalization bypasses (.., ./, //).</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/null-bytes')">
                             <span class="endpoint-url">/null-bytes</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Null byte injection: %00, \x00, path termination bypasses</div>
-                            <span class="success-count">4+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">Null byte injection bypasses (%00).</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/path-params')">
                             <span class="endpoint-url">/path-params</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Semicolon path parameters: ;jsessionid=, ;parameter= bypasses</div>
-                            <span class="success-count">3+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">Semicolon path parameters bypass (/;param=value).</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/fragment-bypass')">
                             <span class="endpoint-url">/fragment-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">URL fragment manipulation, # character handling bypasses</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/advanced')">
-                            <span class="endpoint-url">/advanced</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Advanced techniques: Unicode variation, double decode, path confusion, CRLF injection</div>
-                            <span class="success-count">6+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">URL fragment manipulation bypasses (#).</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Header Pollution & Smuggling -->
                 <div class="endpoints-category">
-                    <div class="category-header">📡 Header Pollution & Smuggling</div>
+                    <div class="category-header">🤯 Header Pollution & Smuggling</div>
                     <div class="endpoints-grid">
                         <div class="endpoint-card" onclick="testEndpoint('/header-pollution')">
                             <span class="endpoint-url">/header-pollution</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Multiple header pollution: duplicate XFF, comma-separated values</div>
-                            <span class="success-count">4+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">Multiple header pollution techniques.</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/host-injection')">
                             <span class="endpoint-url">/host-injection</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Host header injection: internal, localhost, port manipulation</div>
-                            <span class="success-count">5+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">Host header injection variations.</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/xff-pollution')">
                             <span class="endpoint-url">/xff-pollution</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">X-Forwarded-For pollution: chain attacks, multiple IPs</div>
-                            <span class="success-count">4+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">X-Forwarded-For header pollution chains.</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/request-smuggling')">
                             <span class="endpoint-url">/request-smuggling</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Request smuggling: CL.TE, TE.CL techniques simulation</div>
-                            <span class="success-count">3+ bypasses</span>
+                            <p class="methods">POST</p>
+                            <p class="description">Request smuggling simulation (CL.TE, TE.CL).</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Load Balancer & Reverse Proxy -->
                 <div class="endpoints-category">
                     <div class="category-header">⚖️ Load Balancer & Reverse Proxy</div>
                     <div class="endpoints-grid">
                         <div class="endpoint-card" onclick="testEndpoint('/lb-bypass')">
                             <span class="endpoint-url">/lb-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Load balancer bypasses: AWS ALB X-Amzn-Trace-Id, F5 BIG-IP tokens</div>
-                            <span class="success-count">4+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">Load balancer specific bypasses (e.g., X-Forwarded-Host).</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/nginx-bypass')">
                             <span class="endpoint-url">/nginx-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Nginx-specific: underscore headers, X-Accel-Redirect</div>
-                            <span class="success-count">3+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">Nginx-specific bypass techniques (e.g., merge_slashes).</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/apache-bypass')">
                             <span class="endpoint-url">/apache-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Apache bypasses: mod_rewrite, X-Original-URL, Range headers</div>
-                            <span class="success-count">4+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">Apache-specific bypass methods.</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/haproxy-bypass')">
                             <span class="endpoint-url">/haproxy-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">HAProxy configuration bypasses: server state, connection headers</div>
-                            <span class="success-count">3+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">HAProxy configuration bypasses.</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Authentication & Session -->
-                <div class="endpoints-category">
-                    <div class="category-header">🔐 Authentication & Session</div>
-                    <div class="endpoints-grid">
-                        <div class="endpoint-card" onclick="testEndpoint('/session-bypass')">
-                            <span class="endpoint-url">/session-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Session manipulation: X-Session-ID, X-User-ID spoofing</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/cookie-bypass')">
-                            <span class="endpoint-url">/cookie-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Cookie-based access control: admin=true, role=administrator</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/token-bypass')">
-                            <span class="endpoint-url">/token-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Token manipulation: Bearer admin, Token 12345</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                    </div>
-                </div>
-                
+
                 <!-- Content-Type & Accept Headers -->
                 <div class="endpoints-category">
                     <div class="category-header">📄 Content-Type & Accept Headers</div>
                     <div class="endpoints-grid">
                         <div class="endpoint-card" onclick="testEndpoint('/content-type')">
                             <span class="endpoint-url">/content-type</span>
-                            <div class="methods">GET, POST, PUT</div>
-                            <div class="description">Content-Type manipulation: XML, multipart/form-data bypasses</div>
-                            <span class="success-count">3+ bypasses</span>
+                            <p class="methods">POST, PUT</p>
+                            <p class="description">Content-Type header bypasses (e.g., application/json).</p>
                         </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/accept-bypass')">
-                            <span class="endpoint-url">/accept-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Accept header variations: XML acceptance, wildcard bypasses</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/charset-bypass')">
-                            <span class="endpoint-url">/charset-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Character encoding bypasses: UTF-7, ISO-8859-1</div>
-                            <span class="success-count">2+ bypasses</span>
+                        <div class="endpoint-card" onclick="testEndpoint('/accept-header')">
+                            <span class="endpoint-url">/accept-header</span>
+                            <p class="methods">GET</p>
+                            <p class="description">Accept header manipulation (e.g., */*).</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Geographic & IP-Based -->
-                <div class="endpoints-category">
-                    <div class="category-header">🌍 Geographic & IP-Based</div>
-                    <div class="endpoints-grid">
-                        <div class="endpoint-card" onclick="testEndpoint('/geo-bypass')">
-                            <span class="endpoint-url">/geo-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Geographic bypasses: CF-IPCountry, X-Country-Code manipulation</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/ip-whitelist')">
-                            <span class="endpoint-url">/ip-whitelist</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">IP whitelist bypasses: X-Client-IP, X-Real-IP spoofing</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/rate-limit-bypass')">
-                            <span class="endpoint-url">/rate-limit-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Rate limiting evasion: X-Rate-Limit-Bypass, bot user agents</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- File & MIME Type -->
-                <div class="endpoints-category">
-                    <div class="category-header">📁 File & MIME Type</div>
-                    <div class="endpoints-grid">
-                        <div class="endpoint-card" onclick="testEndpoint('/extension-bypass')">
-                            <span class="endpoint-url">/extension-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">File extension manipulation: .txt, .log, .json, .xml, .php extensions</div>
-                            <span class="success-count">8+ bypasses</span>
-                        </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/mime-bypass')">
-                            <span class="endpoint-url">/mime-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">MIME type spoofing: image/jpeg content-type bypass</div>
-                            <span class="success-count">2+ bypasses</span>
-                        </div>
-                    </div>
-                </div>
-                
+
                 <!-- Cache & CDN Advanced -->
                 <div class="endpoints-category">
                     <div class="category-header">💾 Cache & CDN Advanced</div>
                     <div class="endpoints-grid">
                         <div class="endpoint-card" onclick="testEndpoint('/cache-bypass')">
                             <span class="endpoint-url">/cache-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Cache control bypasses: no-cache, pragma headers</div>
-                            <span class="success-count">3+ bypasses</span>
+                            <p class="methods">GET</p>
+                            <p class="description">Cache poisoning and deception techniques.</p>
                         </div>
-                        
                         <div class="endpoint-card" onclick="testEndpoint('/cdn-origin')">
                             <span class="endpoint-url">/cdn-origin</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">CDN origin server bypass: X-Forwarded-Server manipulation</div>
-                            <span class="success-count">2+ bypasses</span>
+                            <p class="methods">GET, POST, ...</p>
+                            <p class="description">Direct origin server access bypasses.</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Modern Security Controls -->
+
+                <!-- API Specific Bypasses -->
                 <div class="endpoints-category">
-                    <div class="category-header">🔒 Modern Security Controls</div>
+                    <div class="category-header">📡 API Specific Bypasses</div>
                     <div class="endpoints-grid">
-                        <div class="endpoint-card" onclick="testEndpoint('/csp-bypass')">
-                            <span class="endpoint-url">/csp-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Content Security Policy bypass: X-Content-Type-Options manipulation</div>
-                            <span class="success-count">2+ bypasses</span>
+                        <div class="endpoint-card" onclick="testEndpoint('/graphql-bypass')">
+                            <span class="endpoint-url">/graphql-bypass</span>
+                            <p class="methods">POST</p>
+                            <p class="description">GraphQL introspection and query manipulation.</p>
                         </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/csrf-bypass')">
-                            <span class="endpoint-url">/csrf-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">CSRF protection bypass: X-CSRF-Token, X-Requested-With headers</div>
-                            <span class="success-count">3+ bypasses</span>
+                        <div class="endpoint-card" onclick="testEndpoint('/jwt-bypass')">
+                            <span class="endpoint-url">/jwt-bypass</span>
+                            <p class="methods">POST</p>
+                            <p class="description">JWT signature and algorithm bypasses.</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Encoding & Obfuscation -->
-                <div class="endpoints-category">
-                    <div class="category-header">🔀 Encoding & Obfuscation</div>
-                    <div class="endpoints-grid">
-                        <div class="endpoint-card" onclick="testEndpoint('/double-encode')">
-                            <span class="endpoint-url">/double-encode</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Double URL encoding: %2525 sequences, nested encoding</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/mixed-encode')">
-                            <span class="endpoint-url">/mixed-encode</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Mixed encoding techniques: %41%61 combinations</div>
-                            <span class="success-count">3+ bypasses</span>
-                        </div>
-                        
-                        <div class="endpoint-card" onclick="testEndpoint('/unicode-bypass')">
-                            <span class="endpoint-url">/unicode-bypass</span>
-                            <div class="methods">GET, POST</div>
-                            <div class="description">Unicode normalization: Cyrillic character variations</div>
-                            <span class="success-count">2+ bypasses</span>
-                        </div>
-                    </div>
-                </div>
-                
+
                 <!-- Container & Orchestration -->
                 <div class="endpoints-category">
                     <div class="category-header">🐳 Container & Orchestration</div>
@@ -715,6 +608,19 @@
                             <div class="methods">GET, POST</div>
                             <div class="description">Istio/Envoy specific: X-Envoy-Peer-Metadata, X-Istio-Attributes</div>
                             <span class="success-count">3+ bypasses</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Miscellaneous Bypasses -->
+                <div class="endpoints-category">
+                    <div class="category-header">⚙️ Miscellaneous Bypasses</div>
+                    <div class="endpoints-grid">
+                        <div class="endpoint-card" onclick="testEndpoint('/miscellaneous-bypass')">
+                            <span class="endpoint-url">/miscellaneous-bypass</span>
+                            <div class="methods">GET, POST</div>
+                            <div class="description">Bypass with case-sensitive paths, query parameter reordering, and other uncategorized techniques.</div>
+                            <span class="success-count">4+ bypasses</span>
                         </div>
                     </div>
                 </div>
