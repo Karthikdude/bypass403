@@ -1163,4 +1163,4 @@ if __name__ == '__main__':
     print("  - /debug (advanced techniques)")
     print("  - /advanced (unicode and encoding)")
     print("  - Plus 50+ specialized bypass endpoints")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+  
