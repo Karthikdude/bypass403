@@ -85,7 +85,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Karthik S Sathyan**
   - GitHub: [@karthikssathyan](https://github.com/Karthikdude)
-  - LinkedIn: [Karthik S Sathyan](https://linkedin.com/in/karthik-s-sathyan/)
+  - LinkedIn: [Karthik S Sathyan](https://linkedin.com/in/karthik-s-sathyan)
   - Twitter: [@karthikssathyan](https://twitter.com/igdudee)
 
 ## ✨ Support
