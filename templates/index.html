@@ -1,271 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BypassX Testing Laboratory - Complete HTTP 403 Bypass Suite</title>
-    <meta name="description" content="Advanced HTTP 403 bypass testing laboratory with 60+ protected endpoints for security testing and research purposes">
-    <meta name="keywords" content="HTTP 403 bypass, security testing, web security, WAF testing, security research">
+    <title>Bypass403 CTF - Capture The Flags</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/styles.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .header {
-            text-align: center;
-            color: white;
-            padding: 40px 0;
-        }
-        
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .header .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            background: #28a745;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin: 10px;
-        }
-        
-        .main-content {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            padding: 40px;
-            margin-top: 20px;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .stat-card {
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            border-left: 4px solid #007bff;
-        }
-        
-        .stat-card h3 {
-            color: #007bff;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        
-        .stat-card p {
-            color: #666;
-            font-weight: 500;
-        }
-        
-        .lab-endpoints {
-            margin: 40px 0;
-        }
-        
-        .endpoints-category {
-            margin: 30px 0;
-        }
-        
-        .category-header {
-            background: linear-gradient(45deg, #4f46e5, #7c3aed);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 10px 10px 0 0;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-        
-        .endpoints-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 15px;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 0 0 10px 10px;
-        }
-        
-        .endpoint-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #9c27b0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .endpoint-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .endpoint-card .endpoint-url {
-            font-family: 'Courier New', monospace;
-            background: #f1f3f4;
-            padding: 8px 12px;
-            border-radius: 5px;
-            color: #d32f2f;
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .endpoint-card .methods {
-            color: #1976d2;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-        
-        .endpoint-card .description {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-        
-        .techniques-overview {
-            background: linear-gradient(45deg, #e8f5e8, #f0f4ff);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
-        
-        .techniques-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .technique-category {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            border: 1px solid #dee2e6;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .technique-category h3 {
-            color: #495057;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #007bff;
-        }
-        
-        .technique-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .technique-list li {
-            padding: 6px 0;
-            color: #555;
-            font-size: 0.9rem;
-        }
-        
-        .technique-list li::before {
-            content: "✓";
-            color: #28a745;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-        
-        .test-section {
-            background: linear-gradient(45deg, #fff3e0, #fce4ec);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .test-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.2s;
-            margin: 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .test-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
-        }
-        
-        .warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            color: #856404;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .warning strong {
-            color: #d63031;
-        }
-        
-        .footer {
-            text-align: center;
-            color: white;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-        
-        .vulnerable-badge {
-            background: #dc3545;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-        
-        .success-count {
-            background: #28a745;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            float: right;
-        }
+        /* Modern design overrides styles from external CSS */
     </style>
 </head>
 <body>
@@ -273,8 +16,63 @@
         <div class="header">
             <h1>BypassX Testing Laboratory</h1>
             <p class="subtitle">Complete HTTP 403 Bypass Testing Suite - 60+ Protected Endpoints</p>
+            {% if username %}
+                <div class="user-info" style="margin: 20px 0; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                    <h3 style="margin: 0; color: #fff;">👤 Welcome, {{ username }}!</h3>
+                    <p style="margin: 5px 0; color: #fff; opacity: 0.9;">Challenges Completed: {{ completed_challenges|length }}/60+</p>
+                    
+                    <!-- Session Export/Import Controls -->
+                    <div class="session-controls" style="margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="margin: 0 0 10px 0; color: #fff; font-size: 0.9rem; opacity: 0.9;">🔄 Session Management</h4>
+                        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                            <button onclick="exportSession()" style="background: var(--clr-primary-a30); color: var(--clr-surface-a0); border: 1px solid var(--clr-primary-a40); padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; transition: all 0.2s ease;">📤 Export Progress</button>
+                            <button onclick="showImportDialog()" style="background: var(--clr-surface-tonal-a20); color: var(--clr-primary-a50); border: 1px solid var(--clr-surface-tonal-a30); padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; transition: all 0.2s ease;">📥 Import Progress</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Import Dialog (Initially Hidden) -->
+                    <div id="importDialog" style="display: none; margin-top: 10px; padding: 15px; background: rgba(255,255,255,0.95); border-radius: 8px; border: 1px solid #ccc;">
+                        <h5 style="margin: 0 0 10px 0; color: #333;">📥 Import Session Data</h5>
+                        <textarea id="sessionData" placeholder="Paste your exported session JSON data here..." 
+                                  style="width: 100%; height: 100px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: monospace; font-size: 0.85rem; resize: vertical;"></textarea>
+                        <div style="margin-top: 10px; display: flex; gap: 10px;">
+                            <button onclick="importSession()" style="background: var(--clr-primary-a30); color: var(--clr-surface-a0); border: 1px solid var(--clr-primary-a40); padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: all 0.2s ease;">✅ Import</button>
+                            <button onclick="hideImportDialog()" style="background: var(--clr-surface-tonal-a20); color: var(--clr-primary-a50); border: 1px solid var(--clr-surface-tonal-a30); padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">❌ Cancel</button>
+                        </div>
+                        <div id="importFeedback" style="margin-top: 10px; padding: 8px; border-radius: 4px; display: none;"></div>
+                    </div>
+                    
+                    <!-- Flag Submission Form -->
+                    <div class="flag-submission" style="margin-top: 15px;">
+                        <form method="POST" action="/" style="display: flex; gap: 10px; align-items: center;">
+                            <input type="text" name="flag" placeholder="Enter captured flag..." 
+                                   style="flex: 1; padding: 8px 12px; border: none; border-radius: 5px; font-family: monospace;" required>
+                            <button type="submit" style="background: var(--clr-primary-a30); color: var(--clr-surface-a0); border: 1px solid var(--clr-primary-a40); padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: all 0.2s ease;">🚩 Submit Flag</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Flag Submission Feedback -->
+                {% if message %}
+                    <div class="flag-feedback" style="margin: 10px 0; padding: 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.2); border: 1px solid #ffffff; color: #ffffff;">
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endif %}
+                
+                <!-- Markdown Content Display -->
+                {% if markdown_content %}
+                    <div class="markdown-content">
+                        <div class="technique-header">
+                            <h2>Technique Details</h2>
+                        </div>
+                        <div class="markdown-body">
+                            {{ markdown_content|safe }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
             <div class="status-badge">100% Success Rate</div>
-            <div class="status-badge">58 Bypass Techniques</div>
+            <div class="status-badge">149 Bypass Techniques</div>
             <div class="status-badge">16 Categories</div>
             <div class="status-badge">60+ Endpoints</div>
         </div>
@@ -333,7 +131,7 @@
                     <p>Protected Endpoints</p>
                 </div>
                 <div class="stat-card">
-                    <h3>58</h3>
+                    <h3>149</h3>
                     <p>Bypass Techniques</p>
                 </div>
                 <div class="stat-card">
@@ -699,19 +497,113 @@
             window.open(baseUrl + endpoint, '_blank');
         }
         
+        // Session Export/Import Functions
+        function exportSession() {
+            fetch('/export', {
+                method: 'GET',
+                credentials: 'same-origin'
+            })
+            .then(response => response.json())
+            .then(data => {
+                const sessionData = JSON.stringify(data, null, 2);
+                
+                // Create a downloadable file
+                const blob = new Blob([sessionData], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `bypass403_session_${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                alert('✅ Session data exported successfully!');
+            })
+            .catch(err => {
+                console.error('Export error:', err);
+                alert('❌ Failed to export session data.');
+            });
+        }
+        
+        function showImportDialog() {
+            document.getElementById('importDialog').style.display = 'block';
+        }
+        
+        function hideImportDialog() {
+            document.getElementById('importDialog').style.display = 'none';
+            document.getElementById('sessionData').value = '';
+            document.getElementById('importFeedback').style.display = 'none';
+        }
+        
+        function importSession() {
+            const sessionData = document.getElementById('sessionData').value.trim();
+            const feedback = document.getElementById('importFeedback');
+            
+            if (!sessionData) {
+                showFeedback('❌ Please paste session data first.', 'error');
+                return;
+            }
+            
+            // Validate JSON
+            try {
+                JSON.parse(sessionData);
+            } catch (e) {
+                showFeedback('❌ Invalid JSON format. Please check your data.', 'error');
+                return;
+            }
+            
+            fetch('/import', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: sessionData,
+                credentials: 'same-origin'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showFeedback('✅ Session imported successfully! Refreshing page...', 'success');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
+                } else {
+                    showFeedback('❌ Import failed: ' + (data.error || 'Unknown error'), 'error');
+                }
+            })
+            .catch(err => {
+                console.error('Import error:', err);
+                showFeedback('❌ Network error during import.', 'error');
+            });
+        }
+        
+        function showFeedback(message, type) {
+            const feedback = document.getElementById('importFeedback');
+            feedback.textContent = message;
+            feedback.style.display = 'block';
+            feedback.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
+            feedback.style.color = type === 'success' ? '#155724' : '#721c24';
+            feedback.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+        }
+        
         // Add interactive features
         document.addEventListener('DOMContentLoaded', function() {
             // Animate endpoint cards
             const endpointCards = document.querySelectorAll('.endpoint-card');
             endpointCards.forEach(card => {
+                // Remove any existing inline styles that might be causing issues
+                card.style.borderLeftColor = '';
+                card.style.borderLeftWidth = '';
+                
                 card.addEventListener('mouseenter', function() {
-                    this.style.borderLeftColor = '#007bff';
+                    this.style.borderLeftColor = '#ffffff';
                     this.style.borderLeftWidth = '6px';
                 });
                 
                 card.addEventListener('mouseleave', function() {
-                    this.style.borderLeftColor = '#9c27b0';
-                    this.style.borderLeftWidth = '4px';
+                    this.style.borderLeftColor = '#555555';
+                    this.style.borderLeftWidth = '6px';
                 });
             });
             
