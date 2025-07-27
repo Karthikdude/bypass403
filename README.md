@@ -27,7 +27,7 @@ Experience BypassX in action: [https://bypass403.vercel.app/](https://bypass403.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/bypass403.git
+   git clone https://github.com/Karthikdude/bypass403.git
    cd bypass403
    ```
 
@@ -84,9 +84,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Developer
 
 - **Karthik S Sathyan**
-  - GitHub: [@karthikssathyan](https://github.com/karthikssathyan)
-  - LinkedIn: [Karthik S Sathyan](https://linkedin.com/in/karthikssathyan)
-  - Twitter: [@karthikssathyan](https://twitter.com/karthikssathyan)
+  - GitHub: [@karthikssathyan](https://github.com/Karthikdude)
+  - LinkedIn: [Karthik S Sathyan](https://linkedin.com/in/karthik-s-sathyan/)
+  - Twitter: [@karthikssathyan](https://twitter.com/igdudee)
 
 ## ✨ Support
 
